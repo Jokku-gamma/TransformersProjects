@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 from dotenv import load_dotenv
 import os
 load_dotenv()
-token="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"
+
 HUGGING_FACE_TOKEN=os.environ.get("HUGGING_FACE_TOKEN")
-processor=DPTImageProcessor.from_pretrained("Intel/dept-large",token=token)
-model=DPTForDepthEstimation.from_pretrained("Intel/dpt-large",token=token)
+processor=DPTImageProcessor.from_pretrained("Intel/dept-large",token=HUGGING_FACE_TOKEN)
+model=DPTForDepthEstimation.from_pretrained("Intel/dpt-large",token=HUGGING_FACE_TOKEN)
 path="road.jpeg"
 image=Image.open(path)
 inputs=processor(images=image,return_tensors='pt')
